@@ -16,8 +16,8 @@ Programm::Programm()
 {
     m_algMap.insert(std::make_pair("-rle", &Compress::rle));
     m_algMap.insert(std::make_pair("-RLE", &Compress::rle));
-    m_algMap.insert(std::make_pair("-drle", &Compress::rle));
-    m_algMap.insert(std::make_pair("-dRLE", &Compress::rle));
+    m_algMap.insert(std::make_pair("-drle", &Compress::drle));
+    m_algMap.insert(std::make_pair("-dRLE", &Compress::drle));
 
 }
 
@@ -52,6 +52,7 @@ void Programm::handleInputArgs(int argc, char **argv)
             std::cout << "Plese use -help for info" << std::endl;
         }
         return;
+    }
 
         if(argc == 3)
         {
@@ -65,10 +66,9 @@ void Programm::handleInputArgs(int argc, char **argv)
         {
             m_inputFile = argv[1];
             m_outputFile = argv[2];
-            m_algorithm = argv[4];
+            m_algorithm = argv[3];
             return;
         }
-    }
 
   /*  for(int i = 1; i < argc; ++i)
     {
